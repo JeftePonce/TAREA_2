@@ -1,0 +1,106 @@
+# depslib dependency file v1.0
+1619737586 source:c:\users\pablo\desktop\tarea_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lista.h"
+	"funciones.h"
+	"map.h"
+
+1619734974 source:c:\users\pablo\desktop\tarea_2\mapa.c
+
+1619735424 source:c:\users\pablo\desktop\tarea_2\lista.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1617579823 c:\users\pablo\desktop\tarea_2\list.h
+
+1619735865 source:c:\users\pablo\desktop\tarea_2\funciones.c
+	"lista.h"
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+
+1619735424 c:\users\pablo\desktop\tarea_2\lista.h
+
+1619738738 c:\users\pablo\desktop\tarea_2\funciones.h
+
+1619735661 source:c:\users\pablo\desktop\tarea_2\map.c
+	"Map.h"
+	<stdlib.h>
+	<assert.h>
+
+1619735706 c:\users\pablo\desktop\tarea_2\map.h
+
+1619915063 source:c:\users\jefte\desktop\tarea_2 - copia\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"funciones.h"
+	"map.h"
+
+1619735424 c:\users\jefte\desktop\tarea_2 - copia\lista.h
+
+1619915037 c:\users\jefte\desktop\tarea_2 - copia\funciones.h
+	"map.h"
+
+1619735706 c:\users\jefte\desktop\tarea_2 - copia\map.h
+
+1619915144 source:c:\users\jefte\desktop\tarea_2 - copia\funciones.c
+	"list.h"
+	"funciones.h"
+	"map.h"
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+
+1619908715 source:c:\users\jefte\desktop\tarea_2 - copia\map.c
+	"Map.h"
+	<stdlib.h>
+	<assert.h>
+
+1618007953 source:c:\users\jefte\desktop\tarea_2 - copia\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1617579823 c:\users\jefte\desktop\tarea_2 - copia\list.h
+
+1619911586 source:c:\users\jefte\desktop\tarea_2 - copia\mapa.c
+	"mapa.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<ctype.h>
+
+1619911658 c:\users\jefte\desktop\tarea_2 - copia\mapa.h
+
+1619915144 source:c:\users\jefte\desktop\super carpeta antiborracion\tarea_2 - copia\funciones.c
+	"list.h"
+	"funciones.h"
+	"map.h"
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+
+1617579823 c:\users\jefte\desktop\super carpeta antiborracion\tarea_2 - copia\list.h
+
+1619915037 c:\users\jefte\desktop\super carpeta antiborracion\tarea_2 - copia\funciones.h
+	"map.h"
+
+1619735706 c:\users\jefte\desktop\super carpeta antiborracion\tarea_2 - copia\map.h
+
+1618007953 source:c:\users\jefte\desktop\super carpeta antiborracion\tarea_2 - copia\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1619908715 source:c:\users\jefte\desktop\super carpeta antiborracion\tarea_2 - copia\map.c
+	"Map.h"
+	<stdlib.h>
+	<assert.h>
+

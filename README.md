@@ -1,2 +1,2 @@
-# tarea_2
-xd
+# Tarea_2
+Carpeta de la tarea
