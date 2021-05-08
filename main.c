@@ -235,6 +235,11 @@ int main(){
         case 3:
 
             printf("3. Evolucionar Pokemon \n");
+            /*Evolucionar pokemon (int id_pokemon): La aplicación deberá buscar en tu almacenamiento el pokemon con el id ingresado,
+             y luego buscar la siguiente evolución en la pokédex para actualizar la información (se actualiza el nombre con la nueva evolución, los
+            PC se incrementan un 50%, y los PS un 25%). Si el pokemon ya esta en su última evolución, o no se encuentra, muestra un mensaje por pantalla.
+            Ej: se ingresa el id 1, se busca en tu almacenamiento y se encuentra a pikachu, luego se busca pikachu en la pokédex y se encuentra la nueva
+            evolucion (raichu), por último actualiza la información en tu almacenamiento y le incrementa los PC a 15 y los PS a 12*/
 
             break;
 
