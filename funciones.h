@@ -32,4 +32,7 @@ pokemondex* crear_pokemonDex(char* nombre, int existencia, char* tipo, char* evo
 
 mostrarMapaAlm(Map* mapa); //muestra todos los pokemones de el mapa almacenamiento
 
+mostrarMapaPokedex(Map* mapa); //muestra todos los pokemones de el mapa pokedex
+
+
 #endif

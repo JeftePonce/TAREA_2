@@ -62,13 +62,13 @@ pokemondex* crear_pokemonDex(char* nombre, int existencia, char* tipo, char* evo
 
    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
 
-    oPokemonDex->nombre = nombre;
-    oPokemonDex->existencia = existencia;
+   oPokemonDex->nombre = nombre;
     oPokemonDex->tipo = tipo;
     oPokemonDex->evolPrev = evolPrev;
     oPokemonDex->evolPost = evolPost;
     oPokemonDex->numPokedex = numPokedex;
     oPokemonDex->region = region;
+
 
     return oPokemonDex;
 
@@ -96,6 +96,34 @@ mostrarMapaAlm(Map* mapa){
         i++;
 
         oPokemon = nextMap(mapa);
+
+    }
+
+}
+
+mostrarMapaPokedex(Map* mapa){
+
+    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
+
+    oPokemonDex = firstMap(mapa);
+
+    int i=0;
+
+    while(oPokemonDex != NULL){
+
+        printf("------%i------\n", i);
+
+        printf("%s \n", oPokemonDex->nombre);
+        printf("%i \n", oPokemonDex->existencia);
+        printf("%s \n", oPokemonDex->tipo);
+        printf("%s \n", oPokemonDex->evolPrev);
+        printf("%s \n", oPokemonDex->evolPost);
+        printf("%i \n", oPokemonDex->numPokedex);
+        printf("%s \n", oPokemonDex->region);
+        printf("\n");
+        i++;
+
+        oPokemonDex = nextMap(mapa);
 
     }
 
