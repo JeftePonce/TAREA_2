@@ -28,7 +28,7 @@ int lower_than_string(void * key1, void * key2) {
   retorna 1 si son iguales
 */
 int is_equal_int(void * key1, void * key2) {
-    if(*(int*)key1 == *(int*)key2) return 1;
+    if((int*)key1 == (int*)key2) return 1;
     return 0;
 }
 
@@ -71,7 +71,7 @@ int main(){
     char* evolPost;
     int numPokedex;//int
     char* region;
-    int cont = 0; //sirve para no pasarnos de los 100 pokemons que se pueden almacenar
+    int contPokALmacenados = 0; //sirve para no pasarnos de los 100 pokemons que se pueden almacenar
 
     /* sera el tipo de dato que utilizaremos para almacenar los datos del pokemon
     */
@@ -79,6 +79,7 @@ int main(){
     pokemondex* oPokemonDex = NULL;
 
     while (fgets (linea, 1023, fp) != NULL /*&& cont <= 100*/ ) { // Se lee la linea incluyendo espacios
+
 
         id = (int) strtol(get_csv_field(linea, 0), NULL, 10);
         nombre = get_csv_field(linea,1);
@@ -93,24 +94,200 @@ int main(){
 
         //Se almacenan los datos dentro de los objetos
         oPokemon = crear_pokemon(id, nombre, pc, ps, sexo);
-        oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region);
+        oPokemonDex = searchMap(pokedex, nombre);
 
-        if( (searchMap(pokemonAlm, oPokemon->nombre)) != NULL ){
-            oPokemonDex->existencia++;
-        }else{
+        if( oPokemonDex == NULL){
+
+            oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region);
+            insertMap(pokedex, oPokemonDex->nombre, oPokemonDex);
             oPokemonDex->existencia = 1;
+        }
+        else oPokemonDex->existencia++;
+
+
+
+
+        if(contPokALmacenados <= 100){
+            insertMap(pokemonAlm,oPokemon->id,oPokemon);
+            contPokALmacenados++;
         }
 
         //Ingresamos el pokemon al mapa correspondiente
-        insertMap(pokemonAlm, &oPokemon->id, oPokemon);
-        cont++;
-        insertMap(pokedex, oPokemonDex->nombre, oPokemonDex);
 
-        if(cont==100) break;
+
+        //insertMap(pokedex, oPokemonDex->nombre, oPokemonDex);
+
+
 
     }
 
-    mostrarMapaAlm(pokemonAlm);
+    //int op;//variable para el menu
+
+    //Limpiamos variables
+    //Almacenamiento
+    /**id = (int) malloc(sizeof(id));//
+    nombre = (char*) malloc(sizeof(nombre));//
+    pc = (int) malloc(sizeof(pc));//
+    ps = (int) malloc(sizeof(ps));//
+    sexo = (char*) malloc(sizeof(sexo));//
+
+    //Pokedex
+    tipo = (char*) malloc(tipo);
+    evolPrev = (char*) malloc(evolPrev);
+    evolPost = (char*) malloc(evolPost);
+    numPokedex = (int) malloc(numPokedex);
+    region = (char*) malloc(region);**/
+
+    mostrarMapaPokedex(pokedex);
+
+    /**while(1){
+
+
+        printf("Seleccione una opcion:\n");
+        printf("1. Importar archivo CSV \n");
+        printf("2. Agregar un Pokemon al Almacenamiento \n");
+        printf("3. Evolucionar Pokemon \n");
+        printf("4. Buscar Pokemon por Tipo en Almacenamiento \n");
+        printf("5. Buscar Pokemon por Nombre en Almacenamiento \n");
+        printf("6. Buscar Pokemon por Nombre en Pokedex \n");
+        printf("7. Mostrar todos los Pokemons en la Pokedex \n");
+        printf("8. Mostrar Pokemons del Almacenamiento ordenados por PC \n");
+        printf("9. Liberar Pokemon del Almacenamiento \n");
+        printf("10. Mostrar Pokemon del Almacenamiento por Region \n");
+        printf("0. Salir \n");
+        printf("Escriba el numero de la opcion: ");
+        scanf("%i", &op);
+
+        switch (op){
+        //case 0 es para salir del programa
+        case 0:
+
+            return 0;
+
+        case 1:
+
+
+            printf("1. Importar archivo CSV \n");
+
+            break;
+
+        case 2:
+
+            id = (int) malloc(sizeof(id));//
+            nombre = (char*) malloc(sizeof(nombre));//
+            pc = (int) malloc(sizeof(pc));//
+            ps = (int) malloc(sizeof(ps));//
+            sexo = (char*) malloc(sizeof(sexo));//
+
+            tipo = (char*) malloc(tipo);
+            evolPrev = (char*) malloc(evolPrev);
+            evolPost = (char*) malloc(evolPost);
+            numPokedex = (int) malloc(numPokedex);
+            region = (char*) malloc(region);
+
+            printf("2. Agregar un Pokemon al Almacenamiento \n");
+
+            if(cont==100){
+
+                printf("El almacenamiento esta lleno. \n");
+                break;
+
+            }
+
+            printf("Ingrese los datos del Pokemon que desea agregar: \n");
+            //printf("ID: ");
+            //scanf("%i ", id);
+
+            printf("NOMBRE: \n");
+            scanf("%s", nombre);
+
+            printf("TIPO: separados por una coma en caso de ser 2\n");
+            scanf("%s", tipo);
+
+            printf("PC: \n");
+            scanf("%i", &pc);
+
+            printf("PS: \n");
+            scanf("%i", &ps);
+
+            printf("SEXO: \n");
+            scanf("%s", sexo);
+
+            printf("Evolucion Previa: \n");
+            scanf("%s", evolPrev);
+
+            printf("Evolucion Posterior: \n");
+            scanf("%s", evolPost);
+
+            printf("Numero Pokedex: \n");
+            scanf("%i", &numPokedex);
+
+            printf("REGION: \n");
+            scanf("%s", region);
+
+            //printf("%s %s %i %i %s %s %s %i %s\n",nombre,tipo,pc,ps,sexo,evolPrev,evolPost,numPokedex,region);
+
+
+            break;
+
+        case 3:
+
+            printf("3. Evolucionar Pokemon \n");
+
+            break;
+
+        case 4:
+
+            printf("4. Buscar Pokemon por Tipo en Almacenamiento \n");
+
+            break;
+
+        case 5:
+
+            printf("5. Buscar Pokemon por Nombre en Almacenamiento \n");
+
+            break;
+
+        case 6:
+
+            printf("6. Buscar Pokemon por Nombre en Pokedex \n");
+
+            break;
+
+        case 7:
+
+            printf("7. Mostrar todos los Pokemons en la Pokedex \n");
+
+            break;
+
+        case 8:
+
+            printf("8. Mostrar Pokemons del Almacenamiento ordenados por PC \n");
+
+            break;
+
+        case 9:
+
+            printf("9. Liberar Pokemon del Almacenamiento \n");
+
+            break;
+
+        case 10:
+
+            printf("10. Mostrar Pokemon del Almacenamiento por Region \n");
+
+            break;
+
+
+        default:
+
+            break;
+
+
+        }
+
+
+    }**/
 
     return 0;
 }
