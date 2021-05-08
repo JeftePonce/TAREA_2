@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1620508414 source:c:\users\pablo\desktop\tarea_2\main.c
+1620510690 source:c:\users\pablo\desktop\tarea_2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -16,7 +16,7 @@
 
 1620508317 c:\users\pablo\desktop\tarea_2\list.h
 
-1620508317 source:c:\users\pablo\desktop\tarea_2\funciones.c
+1620508609 source:c:\users\pablo\desktop\tarea_2\funciones.c
 	"list.h"
 	"funciones.h"
 	"map.h"

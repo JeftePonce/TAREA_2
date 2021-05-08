@@ -125,7 +125,7 @@ int main(){
 
     //Limpiamos variables
     //Almacenamiento
-    /**id = (int) malloc(sizeof(id));//
+    id = (int) malloc(sizeof(id));//
     nombre = (char*) malloc(sizeof(nombre));//
     pc = (int) malloc(sizeof(pc));//
     ps = (int) malloc(sizeof(ps));//
@@ -136,11 +136,13 @@ int main(){
     evolPrev = (char*) malloc(evolPrev);
     evolPost = (char*) malloc(evolPost);
     numPokedex = (int) malloc(numPokedex);
-    region = (char*) malloc(region);**/
+    region = (char*) malloc(region);
 
-    mostrarMapaPokedex(pokedex);
+    //mostrarMapaPokedex(pokedex);
 
-    /**while(1){
+    int op;
+
+    while(1){
 
 
         printf("Seleccione una opcion:\n");
@@ -187,7 +189,7 @@ int main(){
 
             printf("2. Agregar un Pokemon al Almacenamiento \n");
 
-            if(cont==100){
+            if(contPokALmacenados==100){
 
                 printf("El almacenamiento esta lleno. \n");
                 break;
@@ -258,6 +260,8 @@ int main(){
 
             printf("7. Mostrar todos los Pokemons en la Pokedex \n");
 
+            mostrarMapaPokedex(pokedex);
+
             break;
 
         case 8:
@@ -287,7 +291,7 @@ int main(){
         }
 
 
-    }**/
+    }
 
     return 0;
 }
