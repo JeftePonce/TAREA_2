@@ -45,6 +45,69 @@ const char *get_csv_field (char * tmp, int k) {
     return NULL;
 }
 
+void abrirArchivo(char* archivo, Map* pokemonAlm, Map* pokedex){
+
+    // Se abre el archivo de mundos csv en modo lectura "r"
+    FILE *fp = fopen (archivo, "r");
+
+    char linea[1024];
+
+    fgets (linea, 1023, fp);
+
+    //Se declaran las variables rut, nombre, dias y ver para ser utilizadas en la funcion crear_bombero
+    int id;//int
+    char* nombre;
+    char* tipo;
+    int pc;//int
+    int ps;//int
+    char* sexo;
+    char* evolPrev;
+    char* evolPost;
+    int numPokedex;//int
+    char* region;
+    int contPokALmacenados = 0; //sirve para no pasarnos de los 100 pokemons que se pueden almacenar
+
+    /* sera el tipo de dato que utilizaremos para almacenar los datos del pokemon
+    */
+    pokemon* oPokemon = NULL;
+    pokemondex* oPokemonDex = NULL;
+
+    while (fgets (linea, 1023, fp) != NULL /*&& cont <= 100*/ ) { // Se lee la linea incluyendo espacios
+
+
+        id = (int) strtol(get_csv_field(linea, 0), NULL, 10);
+        nombre = get_csv_field(linea,1);
+        tipo = get_csv_field(linea, 2);
+        pc = (int) strtol(get_csv_field(linea, 3), NULL, 10);
+        ps = (int) strtol(get_csv_field(linea, 4), NULL, 10);
+        sexo = get_csv_field(linea, 5);
+        evolPrev = get_csv_field(linea, 6);
+        evolPost = get_csv_field(linea, 7);
+        numPokedex = (int) strtol(get_csv_field(linea, 8), NULL, 10);
+        region = get_csv_field(linea, 9);
+
+        //Se almacenan los datos dentro de los objetos
+        oPokemon = crear_pokemon(id, nombre, pc, ps, sexo);
+        oPokemonDex = searchMap(pokedex, nombre);
+
+        if( oPokemonDex == NULL){
+
+            oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region);
+            insertMap(pokedex, oPokemonDex->nombre, oPokemonDex);
+            oPokemonDex->existencia = 1;
+        }
+        else oPokemonDex->existencia++;
+
+
+        if(contPokALmacenados <= 100){
+            insertMap(pokemonAlm,oPokemon->id,oPokemon);
+            contPokALmacenados++;
+        }
+
+    }
+
+}
+
 pokemon* crear_pokemon(int id, char* nombre, int pc, int ps, char* sexo){
 
     pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));

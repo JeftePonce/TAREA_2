@@ -158,3 +158,17 @@
 
 1620511069 c:\users\the_i\documents\github\tarea_2\map.h
 
+1620521845 source:c:\users\jefte\documents\github\tarea_2\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1620521845 c:\users\jefte\documents\github\tarea_2\list.h
+
+1620521845 source:c:\users\jefte\documents\github\tarea_2\map.c
+	"Map.h"
+	<stdlib.h>
+	<assert.h>
+
+1620521845 c:\users\jefte\documents\github\tarea_2\map.h
+

@@ -138,6 +138,8 @@ int main(){
     numPokedex = (int) malloc(sizeof(numPokedex));
     region = (char*) malloc(sizeof(region));
 
+    char* archivo;
+
     //mostrarMapaPokedex(pokedex);
 
     int op;
@@ -168,8 +170,22 @@ int main(){
 
         case 1:
 
+            archivo = (char*) malloc(sizeof(char));
 
             printf("1. Importar archivo CSV \n");
+
+            printf("Ingrese la ubicacion del archivo\n");
+            scanf("%s", archivo);
+
+            FILE *doc = fopen(archivo, "r");
+
+            if(!doc){
+                printf("No se encontro el archivo\n");
+            }
+
+            abrirArchivo(archivo, pokemonAlm, pokedex);
+
+            //mostrarMapaPokedex(pokedex);
 
             break;
 
