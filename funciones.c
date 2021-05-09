@@ -159,4 +159,34 @@ buscarporNombre(char* name,Map* mapa){
 
 }
 
+buscarporNombreDex(char* name,Map* mapa){
+
+    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
+    oPokemonDex = firstMap(mapa);
+    int i = 1;
+
+    while( oPokemonDex != NULL ){
+
+        if (strcmp(oPokemonDex->nombre,name) == 0){
+            printf("------%i------\n", i);
+
+            printf("Nombre: %s \n", oPokemonDex->nombre);
+            printf("Existencia: %i \n", oPokemonDex->existencia);
+            printf("Tipo: %s \n", oPokemonDex->tipo);
+            printf("Evolucion previa: %s \n", oPokemonDex->evolPrev);
+            printf("Evolucion posterior: %s \n", oPokemonDex->evolPost);
+            printf("Numero de la pokedex: %i \n", oPokemonDex->numPokedex);
+            printf("Region: %s \n", oPokemonDex->region);
+            printf("\n");
+
+            i++;
+        }
+        oPokemonDex = nextMap(mapa);
+    }
+
+    if (i == 1){
+        printf("No se ha encontrado ningun pokemon con ese nombre en la pokedex \n");
+    }
+
+}
 

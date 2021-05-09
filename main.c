@@ -253,12 +253,16 @@ int main(){
 
             buscarporNombre(name,pokemonAlm);
 
-
             break;
 
         case 6:
 
+            name = (char*) malloc(sizeof(name));
+            printf("6. Buscar Pokemon por Nombre en Pokedex \n");
+            printf("Ingrese el nombre a buscar \n");
+            scanf("%s",name);
 
+            buscarporNombreDex(name,pokedex);
 
             break;
 
