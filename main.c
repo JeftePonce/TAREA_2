@@ -209,12 +209,11 @@ int main(){
 
                 printf("El almacenamiento esta lleno. \n");
                 break;
-
             }
 
             printf("Ingrese los datos del Pokemon que desea agregar: \n");
             //printf("ID: ");
-            //scanf("%i ", id);
+            //scanf("%i", &id);
 
             printf("NOMBRE: \n");
             scanf("%s", nombre);
@@ -230,12 +229,13 @@ int main(){
 
             printf("SEXO: \n");
             scanf("%s", sexo);
+            getchar();
 
             printf("Evolucion Previa: \n");
-            scanf("%s", evolPrev);
+            gets(evolPrev);
 
             printf("Evolucion Posterior: \n");
-            scanf("%s", evolPost);
+            gets(evolPost);
 
             printf("Numero Pokedex: \n");
             scanf("%i", &numPokedex);
@@ -243,6 +243,28 @@ int main(){
             printf("REGION: \n");
             scanf("%s", region);
 
+            id = mayorID(pokemonAlm);
+            //printf("%i \n", id);
+            id++;
+
+            oPokemon = crear_pokemon(id, nombre, pc, ps, sexo);
+            oPokemonDex = searchMap(pokedex, nombre);
+
+            if( oPokemonDex == NULL){
+
+                oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region);
+                insertMap(pokedex, oPokemonDex->nombre, oPokemonDex);
+                oPokemonDex->existencia = 1;
+            }
+            else oPokemonDex->existencia++;
+
+
+            if(contPokALmacenados <= 100){
+                insertMap(pokemonAlm,oPokemon->id,oPokemon);
+                contPokALmacenados++;
+            }
+
+            //mostrarMapaAlm(pokemonAlm);
             //printf("%s %s %i %i %s %s %s %i %s\n",nombre,tipo,pc,ps,sexo,evolPrev,evolPost,numPokedex,region);
 
 

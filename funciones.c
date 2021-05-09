@@ -253,3 +253,22 @@ buscarporNombreDex(char* name,Map* mapa){
 
 }
 
+int mayorID(Map* mapa){
+
+    int id;
+    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
+
+    oPokemon = firstMap(mapa);
+    id = oPokemon->id;
+
+    while( oPokemon != NULL ){
+
+        oPokemon = nextMap(mapa);
+        if (oPokemon == NULL) break;
+        else{
+            if (oPokemon->id > id) id = oPokemon->id;
+        }
+
+    }
+    return id;
+}
