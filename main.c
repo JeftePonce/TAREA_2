@@ -72,7 +72,7 @@ int main(){
     int numPokedex;//int
     char* region;
     int contPokALmacenados = 0; //sirve para no pasarnos de los 100 pokemons que se pueden almacenar
-    char* name;
+
     /* sera el tipo de dato que utilizaremos para almacenar los datos del pokemon
     */
     pokemon* oPokemon = NULL;
@@ -132,11 +132,11 @@ int main(){
     sexo = (char*) malloc(sizeof(sexo));//
 
     //Pokedex
-    tipo = (char*) malloc(sizeof(tipo));
-    evolPrev = (char*) malloc(sizeof(evolPrev));
-    evolPost = (char*) malloc(sizeof(evolPost));
-    numPokedex = (int) malloc(sizeof(numPokedex));
-    region = (char*) malloc(sizeof(region));
+    tipo = (char*) malloc(tipo);
+    evolPrev = (char*) malloc(evolPrev);
+    evolPost = (char*) malloc(evolPost);
+    numPokedex = (int) malloc(numPokedex);
+    region = (char*) malloc(region);
 
     //mostrarMapaPokedex(pokedex);
 
@@ -181,11 +181,11 @@ int main(){
             ps = (int) malloc(sizeof(ps));//
             sexo = (char*) malloc(sizeof(sexo));//
 
-            tipo = (char*) malloc(sizeof(tipo));
-            evolPrev = (char*) malloc(sizeof(evolPrev));
-            evolPost = (char*) malloc(sizeof(evolPost));
-            numPokedex = (int) malloc(sizeof(numPokedex));
-            region = (char*) malloc(sizeof(region));
+            tipo = (char*) malloc(tipo);
+            evolPrev = (char*) malloc(evolPrev);
+            evolPost = (char*) malloc(evolPost);
+            numPokedex = (int) malloc(numPokedex);
+            region = (char*) malloc(region);
 
             printf("2. Agregar un Pokemon al Almacenamiento \n");
 
@@ -235,6 +235,11 @@ int main(){
         case 3:
 
             printf("3. Evolucionar Pokemon \n");
+            /*Evolucionar pokemon (int id_pokemon): La aplicación deberá buscar en tu almacenamiento el pokemon con el id ingresado,
+             y luego buscar la siguiente evolución en la pokédex para actualizar la información (se actualiza el nombre con la nueva evolución, los
+            PC se incrementan un 50%, y los PS un 25%). Si el pokemon ya esta en su última evolución, o no se encuentra, muestra un mensaje por pantalla.
+            Ej: se ingresa el id 1, se busca en tu almacenamiento y se encuentra a pikachu, luego se busca pikachu en la pokédex y se encuentra la nueva
+            evolucion (raichu), por último actualiza la información en tu almacenamiento y le incrementa los PC a 15 y los PS a 12*/
 
             break;
 
@@ -246,24 +251,13 @@ int main(){
 
         case 5:
 
-            name = (char*) malloc(sizeof(name));
             printf("5. Buscar Pokemon por Nombre en Almacenamiento \n");
-            printf("Ingrese el nombre a buscar \n");
-            scanf("%s",name);
-
-            buscarporNombre(name,pokemonAlm);
-
 
             break;
 
         case 6:
 
-            name = (char*) malloc(sizeof(name));
             printf("6. Buscar Pokemon por Nombre en Pokedex \n");
-            printf("Ingrese el nombre a buscar \n");
-            scanf("%s",name);
-
-            buscarporNombreDex(name,pokedex);
 
             break;
 
