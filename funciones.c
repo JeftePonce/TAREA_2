@@ -45,7 +45,7 @@ const char *get_csv_field (char * tmp, int k) {
     return NULL;
 }
 
-void abrirArchivo(char* archivo, Map* pokemonAlm, Map* pokedex){
+void abrirArchivo( char * archivo, Map *pokemonAlm, Map *pokedex ){
 
     // Se abre el archivo de mundos csv en modo lectura "r"
     FILE *fp = fopen (archivo, "r");
@@ -72,8 +72,7 @@ void abrirArchivo(char* archivo, Map* pokemonAlm, Map* pokedex){
     pokemon* oPokemon = NULL;
     pokemondex* oPokemonDex = NULL;
 
-    while (fgets (linea, 1023, fp) != NULL /*&& cont <= 100*/ ) { // Se lee la linea incluyendo espacios
-
+    while (fgets (linea, 1023, fp) != NULL ) { // Se lee la linea incluyendo espacios
 
         id = (int) strtol(get_csv_field(linea, 0), NULL, 10);
         nombre = get_csv_field(linea,1);

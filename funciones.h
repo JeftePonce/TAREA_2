@@ -26,7 +26,7 @@ typedef struct{
 
 const char *get_csv_field (char * tmp, int k);
 
-void abrirArchivo(char* archivo, Map* pokemonAlm, Map* pokedex);
+void abrirArchivo(char* archivo, Map *pokemonAlm, Map *pokedex);
 
 pokemon* crear_pokemon(int id, char* nombre, int pc, int ps, char* sexo);
 
