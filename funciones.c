@@ -66,6 +66,7 @@ void abrirArchivo( char * archivo, Map *pokemonAlm, Map *pokedex ){
     char* evolPost;
     int numPokedex;//int
     char* region;
+    int aparicion=1;
     int contPokALmacenados = 0; //sirve para no pasarnos de los 100 pokemons que se pueden almacenar
 
     /* sera el tipo de dato que utilizaremos para almacenar los datos del pokemon
@@ -92,7 +93,7 @@ void abrirArchivo( char * archivo, Map *pokemonAlm, Map *pokedex ){
 
         if( oPokemonDex == NULL){
 
-            oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region);
+            oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region, aparicion);
             insertMap(pokedex, oPokemonDex->nombre, oPokemonDex);
             oPokemonDex->existencia = 1;
         }
@@ -122,7 +123,7 @@ pokemon* crear_pokemon(int id, char* nombre, int pc, int ps, char* sexo, char* t
     return oPokemon;
 }
 
-pokemondex* crear_pokemonDex(char* nombre, int existencia, char* tipo, char* evolPrev, char* evolPost, int numPokedex, char* region){
+pokemondex* crear_pokemonDex(char* nombre, int existencia, char* tipo, char* evolPrev, char* evolPost, int numPokedex, char* region, int aparicion){
 
    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
 
@@ -132,6 +133,7 @@ pokemondex* crear_pokemonDex(char* nombre, int existencia, char* tipo, char* evo
     oPokemonDex->evolPost = evolPost;
     oPokemonDex->numPokedex = numPokedex;
     oPokemonDex->region = region;
+    oPokemonDex->aparicion = aparicion;
 
 
     return oPokemonDex;
@@ -356,3 +358,39 @@ void buscarTipo(char* tipoPok, Map* pokemonAlm){
 
 }
 
+MostrarPorRegion(char* region, Map* mapa, Map* mapadex){
+
+    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
+    oPokemon = firstMap(mapa);
+
+    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
+
+    int cantidad = 0;
+
+    while( oPokemon != NULL ){ //Un while para determinar que el pokemon existe
+
+        oPokemonDex = searchMap(mapadex, oPokemon->nombre);
+        if (strcmp(oPokemonDex->region, region) == 0){    //compruebo si es de la region que busco
+
+            cantidad++;
+            if (oPokemonDex->aparicion == 1){   //compruebo para no imprimir un pokemon 2 veces
+
+                printf("--------------\n");
+
+                printf("Nombre: %s \n", oPokemonDex->nombre);
+                printf("Existencia: %i \n", oPokemonDex->existencia);
+                printf("Tipo: %s \n", oPokemonDex->tipo);
+                printf("Evolucion previa: %s \n", oPokemonDex->evolPrev);
+                printf("Evolucion posterior: %s \n", oPokemonDex->evolPost);
+                printf("Numero de la pokedex: %i \n", oPokemonDex->numPokedex);
+                printf("\n");
+
+                oPokemonDex->aparicion++;
+            }
+        }
+        oPokemon = nextMap(mapa);  //paso al suiguiente pokemon
+    }
+
+    printf("Hay un total de %i pokemones en tu almacenamiento de la region %s\n\n", cantidad, region);
+
+}

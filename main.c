@@ -73,6 +73,7 @@ int main(){
     char* region;
     int contPokALmacenados = 0; //sirve para no pasarnos de los 100 pokemons que se pueden almacenar
     char* name;
+    int aparicion=1;
     /* sera el tipo de dato que utilizaremos para almacenar los datos del pokemon
     */
     pokemon* oPokemon = NULL;
@@ -98,7 +99,7 @@ int main(){
 
         if( oPokemonDex == NULL){
 
-            oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region);
+            oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region, aparicion);
             insertMap(pokedex, oPokemonDex->nombre, oPokemonDex);
             oPokemonDex->existencia = 1;
         }
@@ -250,7 +251,7 @@ int main(){
 
             if( oPokemonDex == NULL){
 
-                oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region);
+                oPokemonDex = crear_pokemonDex(nombre, 0, tipo, evolPrev, evolPost, numPokedex, region, aparicion);
                 insertMap(pokedex, oPokemonDex->nombre, oPokemonDex);
                 oPokemonDex->existencia = 1;
             }
@@ -339,6 +340,14 @@ int main(){
         case 10:
 
             printf("10. Mostrar Pokemon del Almacenamiento por Region \n");
+
+            region = (char*) malloc(sizeof(region));
+            printf("Ingrese la region que quiera buscar: ");
+            scanf("%s", region);
+            printf("\nPokemones de la region de %s \n", region);
+
+            //Muestro por pantalla la informacion de la pokedex de los pokemones del almacenamiento
+            MostrarPorRegion(region, pokemonAlm, pokedex);
 
             break;
 

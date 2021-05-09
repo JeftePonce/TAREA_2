@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1620510690 source:c:\users\pablo\desktop\tarea_2\main.c
+1620597883 source:c:\users\pablo\desktop\tarea_2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -14,27 +14,28 @@
 	<stdlib.h>
 	<assert.h>
 
-1620508317 c:\users\pablo\desktop\tarea_2\list.h
+1620596597 c:\users\pablo\desktop\tarea_2\list.h
 
-1620522894 source:c:\users\pablo\desktop\tarea_2\funciones.c
+1620598177 source:c:\users\pablo\desktop\tarea_2\funciones.c
 	"list.h"
 	"funciones.h"
 	"map.h"
 	<stdio.h>
 	<stdlib.h>
 	<assert.h>
+	<string.h>
 
 1619735424 c:\users\pablo\desktop\tarea_2\lista.h
 
-1620522894 c:\users\pablo\desktop\tarea_2\funciones.h
+1620597883 c:\users\pablo\desktop\tarea_2\funciones.h
 	"map.h"
 
-1620508317 source:c:\users\pablo\desktop\tarea_2\map.c
+1620596597 source:c:\users\pablo\desktop\tarea_2\map.c
 	"Map.h"
 	<stdlib.h>
 	<assert.h>
 
-1620508317 c:\users\pablo\desktop\tarea_2\map.h
+1620596597 c:\users\pablo\desktop\tarea_2\map.h
 
 1619915063 source:c:\users\jefte\desktop\tarea_2 - copia\main.c
 	<stdio.h>
@@ -106,7 +107,7 @@
 	<stdlib.h>
 	<assert.h>
 
-1620508317 source:c:\users\pablo\desktop\tarea_2\list.c
+1620596597 source:c:\users\pablo\desktop\tarea_2\list.c
 	"list.h"
 	<stdlib.h>
 	<assert.h>
