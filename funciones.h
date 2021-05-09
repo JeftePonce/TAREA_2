@@ -34,5 +34,8 @@ mostrarMapaAlm(Map* mapa); //muestra todos los pokemones de el mapa almacenamien
 
 mostrarMapaPokedex(Map* mapa); //muestra todos los pokemones de el mapa pokedex
 
+buscarporNombre(char* name,Map*mapa);
+
+buscarporNombreDex(char* name,Map* mapa);
 
 #endif

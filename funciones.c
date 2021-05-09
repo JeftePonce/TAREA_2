@@ -62,7 +62,7 @@ pokemondex* crear_pokemonDex(char* nombre, int existencia, char* tipo, char* evo
 
    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
 
-   oPokemonDex->nombre = nombre;
+    oPokemonDex->nombre = nombre;
     oPokemonDex->tipo = tipo;
     oPokemonDex->evolPrev = evolPrev;
     oPokemonDex->evolPost = evolPost;
@@ -125,6 +125,67 @@ mostrarMapaPokedex(Map* mapa){
 
         oPokemonDex = nextMap(mapa);
 
+    }
+
+
+}
+
+buscarporNombre(char* name,Map* mapa){
+
+    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
+    oPokemon = firstMap(mapa);
+    int i = 1;
+
+    while( oPokemon != NULL ){
+
+        if (strcmp(oPokemon->nombre,name) == 0){
+            printf("------%i------\n", i);
+
+            printf("Nombre: %s \n", oPokemon->nombre);
+            printf("ID: %i \n", oPokemon->id);
+            printf("PC: %i \n", oPokemon->pc);
+            printf("PS: %i \n", oPokemon->ps);
+            printf("Sexo: %s \n", oPokemon->sexo);
+            printf("\n");
+
+            i++;
+        }
+        oPokemon = nextMap(mapa);
+    }
+
+    if (i == 1){
+        printf("No se ha encontrado ningun pokemon con ese nombre en el almacenamiento \n");
+    }
+
+}
+
+buscarporNombreDex(char* name,Map* mapa){
+
+    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
+    oPokemonDex = firstMap(mapa);
+    int i = 1;
+
+    while( oPokemonDex != NULL ){
+
+        if (strcmp(oPokemonDex->nombre,name) == 0){
+            printf("------%i------\n", i);
+
+            printf("Nombre: %s \n", oPokemonDex->nombre);
+            printf("Existencia: %i \n", oPokemonDex->existencia);
+            printf("Tipo: %s \n", oPokemonDex->tipo);
+            printf("Evolucion previa: %s \n", oPokemonDex->evolPrev);
+            printf("Evolucion posterior: %s \n", oPokemonDex->evolPost);
+            printf("Numero de la pokedex: %i \n", oPokemonDex->numPokedex);
+            printf("Region: %s \n", oPokemonDex->region);
+            printf("\n");
+
+            i++;
+        }
+        oPokemonDex = nextMap(mapa);
+    }
+
+    if (i == 1){
+        printf("No se ha encontrado ningun pokemon con ese nombre en la pokedex \n");
     }
 
 }
