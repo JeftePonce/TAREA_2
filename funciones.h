@@ -42,4 +42,6 @@ buscarporNombre(char* name,Map*mapa);
 
 buscarporNombreDex(char* name,Map* mapa);
 
+EvolucionarPokemon(Map *mapaAlm, Map *mapaDex, int id);
+
 #endif

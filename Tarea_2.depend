@@ -172,3 +172,36 @@
 
 1620521845 c:\users\jefte\documents\github\tarea_2\map.h
 
+1619918030 source:c:\users\darien\documents\github\tarea_2\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1619918030 c:\users\darien\documents\github\tarea_2\list.h
+
+1619918030 source:c:\users\darien\documents\github\tarea_2\map.c
+	"Map.h"
+	<stdlib.h>
+	<assert.h>
+
+1619918030 c:\users\darien\documents\github\tarea_2\map.h
+
+1620529016 source:c:\users\darien\documents\github\tarea_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"funciones.h"
+	"map.h"
+
+1620528479 c:\users\darien\documents\github\tarea_2\funciones.h
+	"map.h"
+
+1620529462 source:c:\users\darien\documents\github\tarea_2\funciones.c
+	"list.h"
+	"funciones.h"
+	"map.h"
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+

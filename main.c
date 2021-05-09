@@ -274,6 +274,13 @@ int main(){
 
             printf("3. Evolucionar Pokemon \n");
 
+            int ide;
+            printf("Ingrese id del Pokemon: ");
+            scanf("%d", &ide);
+            EvolucionarPokemon(pokemonAlm, pokedex, ide);
+
+
+
             break;
 
         case 4:
