@@ -170,7 +170,7 @@
 	<stdlib.h>
 	<assert.h>
 
-1620535536 c:\users\jefte\documents\github\tarea_2\map.h
+1620594966 c:\users\jefte\documents\github\tarea_2\map.h
 
 1619918030 source:c:\users\darien\documents\github\tarea_2\list.c
 	"list.h"
@@ -205,18 +205,19 @@
 	<stdlib.h>
 	<assert.h>
 
-1620536294 source:c:\users\jefte\documents\github\tarea_2\funciones.c
+1620594751 source:c:\users\jefte\documents\github\tarea_2\funciones.c
 	"list.h"
 	"funciones.h"
 	"map.h"
 	<stdio.h>
 	<stdlib.h>
 	<assert.h>
+	<string.h>
 
-1620536036 c:\users\jefte\documents\github\tarea_2\funciones.h
+1620593805 c:\users\jefte\documents\github\tarea_2\funciones.h
 	"map.h"
 
-1620535982 source:c:\users\jefte\documents\github\tarea_2\main.c
+1620594910 source:c:\users\jefte\documents\github\tarea_2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

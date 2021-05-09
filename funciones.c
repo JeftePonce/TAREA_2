@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 
 //Funcion dada por el profesor para leer archivos .csv
 const char *get_csv_field (char * tmp, int k) {
@@ -86,7 +87,7 @@ void abrirArchivo( char * archivo, Map *pokemonAlm, Map *pokedex ){
         region = get_csv_field(linea, 9);
 
         //Se almacenan los datos dentro de los objetos
-        oPokemon = crear_pokemon(id, nombre, pc, ps, sexo);
+        oPokemon = crear_pokemon(id, nombre, pc, ps, sexo, tipo);
         oPokemonDex = searchMap(pokedex, nombre);
 
         if( oPokemonDex == NULL){
@@ -107,7 +108,7 @@ void abrirArchivo( char * archivo, Map *pokemonAlm, Map *pokedex ){
 
 }
 
-pokemon* crear_pokemon(int id, char* nombre, int pc, int ps, char* sexo){
+pokemon* crear_pokemon(int id, char* nombre, int pc, int ps, char* sexo, char* tipo){
 
     pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
 
@@ -116,6 +117,7 @@ pokemon* crear_pokemon(int id, char* nombre, int pc, int ps, char* sexo){
     oPokemon->pc = pc;
     oPokemon->ps = ps;
     oPokemon->sexo = sexo;
+    oPokemon->tipo = tipo;
 
     return oPokemon;
 }
@@ -309,6 +311,47 @@ EvolucionarPokemon(Map *mapaAlm, Map *mapaDex, int id){
         printf("El pokemon ha sido evolucionado");
     }
 
+
+}
+
+void buscarTipo(char* tipoPok, Map* pokemonAlm){
+
+    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
+
+    oPokemon = firstMap(pokemonAlm);
+
+    list *listaTipoPok = list_create(listaTipoPok);
+
+    while(oPokemon != NULL){
+
+        if( strstr(oPokemon->tipo, tipoPok) ){
+
+            list_push_back(listaTipoPok, oPokemon);
+
+        }
+
+        oPokemon = nextMap(pokemonAlm);
+
+        //confirmar si el pokemon pertenece al tipo con la funcion que tengo en el otro main y despues cambiar al siguiente, meter el pokemon en una lista y despues imprimir la lista
+
+    }
+
+    oPokemon = list_first(listaTipoPok);
+
+    while(oPokemon != NULL){
+
+        printf("%s", oPokemon->id);
+        printf("%s", oPokemon->nombre);
+        printf("%s", oPokemon->pc);
+        printf("%s", oPokemon->ps);
+        printf("%s", oPokemon->sexo);
+        printf("%s", oPokemon->tipo);
+
+        oPokemon = list_next(listaTipoPok);
+
+    }
+
+    return;
 
 }
 

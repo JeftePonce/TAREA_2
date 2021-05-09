@@ -93,7 +93,7 @@ int main(){
         region = get_csv_field(linea, 9);
 
         //Se almacenan los datos dentro de los objetos
-        oPokemon = crear_pokemon(id, nombre, pc, ps, sexo);
+        oPokemon = crear_pokemon(id, nombre, pc, ps, sexo, tipo);
         oPokemonDex = searchMap(pokedex, nombre);
 
         if( oPokemonDex == NULL){
@@ -139,6 +139,7 @@ int main(){
     region = (char*) malloc(sizeof(region));
 
     char* archivo;
+    char* tipoPokBus;
 
     //mostrarMapaPokedex(pokedex);
 
@@ -179,8 +180,9 @@ int main(){
 
             FILE *doc = fopen(archivo, "r");
 
-            if(!doc) printf("No se encontro el archivo\n");
-
+            if(!doc){
+                printf("No se encontro el archivo\n");
+            }
             abrirArchivo(archivo, pokemonAlm, pokedex);
 
             break;
@@ -243,7 +245,7 @@ int main(){
             //printf("%i \n", id);
             id++;
 
-            oPokemon = crear_pokemon(id, nombre, pc, ps, sexo);
+            oPokemon = crear_pokemon(id, nombre, pc, ps, sexo, tipo);
             oPokemonDex = searchMap(pokedex, nombre);
 
             if( oPokemonDex == NULL){
@@ -281,7 +283,13 @@ int main(){
 
         case 4:
 
-            printf("4. Buscar Pokemon por Tipo en Almacenamiento \n");
+            tipoPokBus = (char*) malloc(sizeof(char));
+
+            printf("4. Buscar Pokemon por Tipo en Almacenamiento\n");
+            printf("Ingrese el Tipo que desea buscar:\n");
+            scanf("%s", tipoPokBus);
+
+            buscarTipo(tipoPokBus, pokemonAlm);
 
             break;
 
