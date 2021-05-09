@@ -274,11 +274,7 @@ int mayorID(Map* mapa){
 }
 
 EvolucionarPokemon(Map *mapaAlm, Map *mapaDex, int id){
-    /*Evolucionar pokemon (int id_pokemon): La aplicación deberá buscar en tu almacenamiento el pokemon con el id ingresado
-    , y luego buscar la siguiente evolución en la pokédex para actualizar la información (se actualiza el nombre con la nueva evolución,
-    los PC se incrementan un 50%, y los PS un 25%). Si el pokemon ya esta en su última evolución, o no se encuentra, muestra un mensaje
-    por pantalla.
-*/
+
 
     pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
     pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
@@ -301,16 +297,19 @@ EvolucionarPokemon(Map *mapaAlm, Map *mapaDex, int id){
 
         printf("Este pokemon no tiene evolucion\n");
         return;
+    }else
+    if (strcmp(oPokemon->nombre,oPokemonDex->evolPost) == 0){
+
+        printf("Este pokemon se encuentra en su ultima evolucion\n");
+        return;
     }else{
 
         oPokemon->pc = oPokemon->pc * 1.5;
         oPokemon->ps = oPokemon->ps * 1.25;
         oPokemon->nombre = oPokemonDex->evolPost;
+        printf("El pokemon ha sido evolucionado");
     }
-    if (strcmp(oPokemon->nombre,oPokemonDex->evolPost) == 0){
 
-        printf("Este pokemon se encuentra en su ultima evolucion\n");
-        return;
-    }
+
 }
 
