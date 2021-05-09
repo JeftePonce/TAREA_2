@@ -111,3 +111,36 @@
 	<stdlib.h>
 	<assert.h>
 
+1620520244 source:c:\users\the_i\desktop\weas varias 2.0\universidad\progra\tarea_2-main\funciones.c
+	"list.h"
+	"funciones.h"
+	"map.h"
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+
+1620511069 c:\users\the_i\desktop\weas varias 2.0\universidad\progra\tarea_2-main\list.h
+
+1620520179 c:\users\the_i\desktop\weas varias 2.0\universidad\progra\tarea_2-main\funciones.h
+	"map.h"
+
+1620511069 c:\users\the_i\desktop\weas varias 2.0\universidad\progra\tarea_2-main\map.h
+
+1620511069 source:c:\users\the_i\desktop\weas varias 2.0\universidad\progra\tarea_2-main\list.c
+	"list.h"
+	<stdlib.h>
+	<assert.h>
+
+1620511069 source:c:\users\the_i\desktop\weas varias 2.0\universidad\progra\tarea_2-main\map.c
+	"Map.h"
+	<stdlib.h>
+	<assert.h>
+
+1620520179 source:c:\users\the_i\desktop\weas varias 2.0\universidad\progra\tarea_2-main\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"funciones.h"
+	"map.h"
+

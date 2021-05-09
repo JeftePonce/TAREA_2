@@ -62,7 +62,7 @@ pokemondex* crear_pokemonDex(char* nombre, int existencia, char* tipo, char* evo
 
    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
 
-   oPokemonDex->nombre = nombre;
+    oPokemonDex->nombre = nombre;
     oPokemonDex->tipo = tipo;
     oPokemonDex->evolPrev = evolPrev;
     oPokemonDex->evolPost = evolPost;
@@ -127,4 +127,36 @@ mostrarMapaPokedex(Map* mapa){
 
     }
 
+
 }
+
+buscarporNombre(char* name,Map* mapa){
+
+    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
+    oPokemon = firstMap(mapa);
+    int i = 1;
+
+    while( oPokemon != NULL ){
+
+        if (strcmp(oPokemon->nombre,name) == 0){
+            printf("------%i------\n", i);
+
+            printf("Nombre: %s \n", oPokemon->nombre);
+            printf("ID: %i \n", oPokemon->id);
+            printf("PC: %i \n", oPokemon->pc);
+            printf("PS: %i \n", oPokemon->ps);
+            printf("Sexo: %s \n", oPokemon->sexo);
+            printf("\n");
+
+            i++;
+        }
+        oPokemon = nextMap(mapa);
+    }
+
+    if (i == 1){
+        printf("No se ha encontrado ningun pokemon con ese nombre en el almacenamiento \n");
+    }
+
+}
+
+
