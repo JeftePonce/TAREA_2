@@ -288,6 +288,7 @@ int main(){
             printf("4. Buscar Pokemon por Tipo en Almacenamiento\n");
             printf("Ingrese el Tipo que desea buscar:\n");
             scanf("%s", tipoPokBus);
+            printf("\n");
 
             buscarTipo(tipoPokBus, pokemonAlm);
 

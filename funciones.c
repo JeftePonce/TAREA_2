@@ -340,12 +340,13 @@ void buscarTipo(char* tipoPok, Map* pokemonAlm){
 
     while(oPokemon != NULL){
 
-        printf("%s", oPokemon->id);
-        printf("%s", oPokemon->nombre);
-        printf("%s", oPokemon->pc);
-        printf("%s", oPokemon->ps);
-        printf("%s", oPokemon->sexo);
-        printf("%s", oPokemon->tipo);
+        printf("%i\n", oPokemon->id);
+        printf("%s\n", oPokemon->nombre);
+        printf("%i\n", oPokemon->pc);
+        printf("%i\n", oPokemon->ps);
+        printf("%s\n", oPokemon->sexo);
+        printf("%s\n", oPokemon->tipo);
+        printf("\n");
 
         oPokemon = list_next(listaTipoPok);
 
