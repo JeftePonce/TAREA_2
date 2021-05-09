@@ -394,3 +394,38 @@ MostrarPorRegion(char* region, Map* mapa, Map* mapadex){
     printf("Hay un total de %i pokemones en tu almacenamiento de la region %s\n\n", cantidad, region);
 
 }
+
+void liberarPokemon(int idLiberar, Map* pokemonAlm, Map* pokedex){
+
+    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
+    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
+
+    if(idLiberar > 100){
+
+        printf("No se encontro el pokemon\n");
+        return;
+
+    }
+
+    oPokemon = searchMap(pokemonAlm, idLiberar);
+    oPokemonDex = searchMap(pokedex, oPokemon->nombre);
+
+    if(oPokemon == NULL) {
+
+        printf("No se encontro el pokemon\n");
+        return;
+
+    }else if( oPokemon->id == idLiberar ){
+
+        eraseMap(pokemonAlm, oPokemon->id);
+        oPokemonDex->existencia = oPokemonDex->existencia-1;
+
+        printf("El pokemon se elimino correctamente\n");
+
+    }else{
+
+        printf("No se encontro el pokemon\n");
+
+    }
+
+}

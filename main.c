@@ -141,6 +141,7 @@ int main(){
 
     char* archivo;
     char* tipoPokBus;
+    int idLiberar;
 
     //mostrarMapaPokedex(pokedex);
 
@@ -334,6 +335,11 @@ int main(){
         case 9:
 
             printf("9. Liberar Pokemon del Almacenamiento \n");
+
+            printf("Ingrese id del pokemon que desea liberar\n");
+            scanf("%i", &idLiberar);
+
+            liberarPokemon(idLiberar, pokemonAlm, pokedex);
 
             break;
 

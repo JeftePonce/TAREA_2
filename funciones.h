@@ -50,4 +50,6 @@ void buscarTipo(char* tipoPok, Map* pokemonAlm);
 
 MostrarPorRegion(char* region, Map* mapa, Map* mapadex);
 
+void liberarPokemon(int idLiberar, Map* pokemonAlm, Map* pokedex);
+
 #endif
