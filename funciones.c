@@ -196,15 +196,15 @@ mostrarMapaPokedex(Map* mapa){
 
 }
 
-buscarporNombre(char* name,Map* mapa){
+buscarporNombre(char* name,Map* mapa){ //Buscamos por nombre en el almacenamiento
 
     pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
-    oPokemon = firstMap(mapa);
-    int i = 1;
+    oPokemon = firstMap(mapa);//Ingresamos al primer elemento del mapa
+    int i = 1;//Tenemos una variable para mostrar cuantos pokemones hay en nuestro almacenamiento
 
-    while( oPokemon != NULL ){
+    while( oPokemon != NULL ){ //Para recorrer el mapa hasta que este sea nulo
 
-        if (strcmp(oPokemon->nombre,name) == 0){
+        if (strcmp(oPokemon->nombre,name) == 0){    //Comparamos el nombre del mapa con el nombre ingresado
             printf("------%i------\n", i);
 
             printf("Nombre: %s \n", oPokemon->nombre);
@@ -216,25 +216,24 @@ buscarporNombre(char* name,Map* mapa){
 
             i++;
         }
-        oPokemon = nextMap(mapa);
+        oPokemon = nextMap(mapa); //Pasamos al siguiente
     }
 
-    if (i == 1){
+    if (i == 1){ //Si no se encuentra ningun pokemon en el almacenamiento se muestra por pantalla lo siguiente
         printf("No se ha encontrado ningun pokemon con ese nombre en el almacenamiento \n");
     }
 
 }
 
-buscarporNombreDex(char* name,Map* mapa){
+buscarporNombreDex(char* name,Map* mapa){ //Buscamos por nombre en la pokedex
 
     pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
-    oPokemonDex = firstMap(mapa);
-    int i = 1;
+    oPokemonDex = firstMap(mapa);//Ingresamos al primer elemento del mapa
 
-    while( oPokemonDex != NULL ){
+    while( oPokemonDex != NULL ){       //Para recorrer el mapa hasta que este sea nulo
 
-        if (strcmp(oPokemonDex->nombre,name) == 0){
-            printf("------%i------\n", i);
+        if (strcmp(oPokemonDex->nombre,name) == 0){ //Comparamos el nombre del mapa con el nombre ingresado
+            printf("--------------\n");
 
             printf("Nombre: %s \n", oPokemonDex->nombre);
             printf("Existencia: %i \n", oPokemonDex->existencia);
@@ -245,15 +244,12 @@ buscarporNombreDex(char* name,Map* mapa){
             printf("Region: %s \n", oPokemonDex->region);
             printf("\n");
 
-            i++;
+            return;
         }
         oPokemonDex = nextMap(mapa);
     }
 
-    if (i == 1){
-        printf("No se ha encontrado ningun pokemon con ese nombre en la pokedex \n");
-    }
-
+        printf("No se ha encontrado ningun pokemon con ese nombre en la pokedex \n"); //Si no se encuentra que son iguales se muestra por pantalla
 }
 
 int mayorID(Map* mapa){     //Busco la mayor ID que tenga un pokemon en el almacenamiento

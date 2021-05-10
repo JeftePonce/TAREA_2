@@ -145,19 +145,19 @@
 	"funciones.h"
 	"map.h"
 
-1620511069 source:c:\users\the_i\documents\github\tarea_2\list.c
+1620612233 source:c:\users\the_i\documents\github\tarea_2\list.c
 	"list.h"
 	<stdlib.h>
 	<assert.h>
 
-1620511069 c:\users\the_i\documents\github\tarea_2\list.h
+1620612233 c:\users\the_i\documents\github\tarea_2\list.h
 
-1620511069 source:c:\users\the_i\documents\github\tarea_2\map.c
+1620612233 source:c:\users\the_i\documents\github\tarea_2\map.c
 	"Map.h"
 	<stdlib.h>
 	<assert.h>
 
-1620511069 c:\users\the_i\documents\github\tarea_2\map.h
+1620612233 c:\users\the_i\documents\github\tarea_2\map.h
 
 1620599737 source:c:\users\jefte\documents\github\tarea_2\list.c
 	"list.h"
@@ -225,4 +225,24 @@
 	"list.h"
 	"funciones.h"
 	"map.h"
+
+1620612233 source:c:\users\the_i\documents\github\tarea_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"funciones.h"
+	"map.h"
+
+1620612233 c:\users\the_i\documents\github\tarea_2\funciones.h
+	"map.h"
+
+1620612630 source:c:\users\the_i\documents\github\tarea_2\funciones.c
+	"list.h"
+	"funciones.h"
+	"map.h"
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<string.h>
 
