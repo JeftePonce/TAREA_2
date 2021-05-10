@@ -282,30 +282,29 @@ EvolucionarPokemon(Map *mapaAlm, Map *mapaDex, int id){
     pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
     pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
 
-    oPokemon = firstMap (mapaAlm);
-    while (oPokemon != NULL){
+    oPokemon = firstMap (mapaAlm); //Se le asigna a oPokemon la primera posicion del mapaAlm
+    while (oPokemon != NULL){ //Aseguro que el pokemon no sea nulo
 
-        if (oPokemon->id == id) break;
+        if (oPokemon->id == id) break; //Compruebo que el id que busco este en el almacenamiento
 
-        oPokemon = nextMap(mapaAlm);
+        oPokemon = nextMap(mapaAlm);//Se le asigna a oPokemon la siguiente posicion de mapaAlm
     }
-    if (oPokemon == NULL){
+    if (oPokemon == NULL){//Si oPokemon es nulo no se encuentra en el almacenamiento
 
         printf("No se encuentra en almacenamiento\n");
         return;
     }
-    oPokemonDex = searchMap(mapaDex, oPokemon->nombre);
+    oPokemonDex = searchMap(mapaDex, oPokemon->nombre);//Busca en mapaDex el nombre del pokemon y se le asigna es pokemon a oPokemonDex
 
-    if (strcmp("No tiene",oPokemonDex->evolPost) == 0){
-
+    if (strcmp("No tiene",oPokemonDex->evolPost) == 0){//Comparamos si dentro de oPokemonDex, evolPost, tiene la cadena "No tiene" de esta forma sabremos si no tiene evolucion posterior
         printf("Este pokemon no tiene evolucion\n");
         return;
     }else
-    if (strcmp(oPokemon->nombre,oPokemonDex->evolPost) == 0){
+    if (strcmp(oPokemon->nombre,oPokemonDex->evolPost) == 0){//Compara el nombre del pokemon con su evolucion posterior en la pokedex
 
         printf("Este pokemon se encuentra en su ultima evolucion\n");
         return;
-    }else{
+    }else{//Aca habiendo pasado los casos anteriores y teniendo evolucion se modifican y actualizan los datos de pc, ps y el nombre a su evolucion
 
         oPokemon->pc = oPokemon->pc * 1.5;
         oPokemon->ps = oPokemon->ps * 1.25;
