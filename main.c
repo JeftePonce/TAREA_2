@@ -60,7 +60,7 @@ int main(){
 
     fgets (linea, 1023, fp);
 
-    //Se declaran las variables rut, nombre, dias y ver para ser utilizadas en la funcion crear_bombero
+    //Se declaran las variables
     int id;//int
     char* nombre;
     char* tipo;
@@ -171,7 +171,7 @@ int main(){
 
             return 0;
 
-        case 1:
+        case 1://Importa un archivo CSV
 
             archivo = (char*) malloc(sizeof(char));
 
@@ -189,7 +189,7 @@ int main(){
 
             break;
 
-        case 2:
+        case 2://Agrega un pokemon al almacenamiento
 
             id = (int) malloc(sizeof(id));//
             nombre = (char*) malloc(sizeof(nombre));//
@@ -270,7 +270,7 @@ int main(){
 
             break;
 
-        case 3:
+        case 3://Evoluciona un pokemon por id, siempre y cuando tenga evolucion
 
             printf("3. Evolucionar Pokemon \n");
 
@@ -283,7 +283,7 @@ int main(){
 
             break;
 
-        case 4:
+        case 4://Busca pokemon por tipo en el almacenamiento
 
             tipoPokBus = (char*) malloc(sizeof(char));
 
@@ -296,7 +296,7 @@ int main(){
 
             break;
 
-        case 5:
+        case 5://Busca pokemons por nombre en el almacenamiento
 
             name = (char*) malloc(sizeof(name));
             printf("5. Buscar Pokemon por Nombre en Almacenamiento \n");
@@ -307,7 +307,7 @@ int main(){
 
             break;
 
-        case 6:
+        case 6://Busca pokemon por nombre en la pokedex
 
             name = (char*) malloc(sizeof(name));
             printf("6. Buscar Pokemon por Nombre en Pokedex \n");
@@ -318,7 +318,7 @@ int main(){
 
             break;
 
-        case 7:
+        case 7://Muestra todos los pokemon de la pokedex
 
             printf("7. Mostrar todos los Pokemons en la Pokedex \n");
 
@@ -326,13 +326,14 @@ int main(){
 
             break;
 
-        case 8:
+
+        case 8://No se hizo
 
             printf("8. Mostrar Pokemons del Almacenamiento ordenados por PC \n");
 
             break;
 
-        case 9:
+        case 9://Libera un pokemeon del almacenamiento
 
             printf("9. Liberar Pokemon del Almacenamiento \n");
 
@@ -343,7 +344,7 @@ int main(){
 
             break;
 
-        case 10:
+        case 10://Muestra todos los pokemon que hay en el almacenamiento segun la region buscada
 
             printf("10. Mostrar Pokemon del Almacenamiento por Region \n");
 

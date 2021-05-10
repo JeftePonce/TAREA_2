@@ -187,7 +187,7 @@
 
 1619918030 c:\users\darien\documents\github\tarea_2\map.h
 
-1620529016 source:c:\users\darien\documents\github\tarea_2\main.c
+1620606733 source:c:\users\darien\documents\github\tarea_2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -195,16 +195,17 @@
 	"funciones.h"
 	"map.h"
 
-1620528479 c:\users\darien\documents\github\tarea_2\funciones.h
+1620605124 c:\users\darien\documents\github\tarea_2\funciones.h
 	"map.h"
 
-1620531453 source:c:\users\darien\documents\github\tarea_2\funciones.c
+1620616173 source:c:\users\darien\documents\github\tarea_2\funciones.c
 	"list.h"
 	"funciones.h"
 	"map.h"
 	<stdio.h>
 	<stdlib.h>
 	<assert.h>
+	<string.h>
 
 1620601867 source:c:\users\jefte\documents\github\tarea_2\funciones.c
 	"list.h"
