@@ -256,18 +256,18 @@ buscarporNombreDex(char* name,Map* mapa){
 
 }
 
-int mayorID(Map* mapa){
+int mayorID(Map* mapa){     //Busco la mayor ID que tenga un pokemon en el almacenamiento
 
     int id;
     pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
 
     oPokemon = firstMap(mapa);
-    id = oPokemon->id;
+    id = oPokemon->id;          //copio la id del primer pokemon
 
-    while( oPokemon != NULL ){
+    while( oPokemon != NULL ){  //se asegura que el pokemon no sea nulo
 
         oPokemon = nextMap(mapa);
-        if (oPokemon == NULL) break;
+        if (oPokemon == NULL) break;    //comparo las id de los pokemones para quedarme con la mayor y retornarla
         else{
             if (oPokemon->id > id) id = oPokemon->id;
         }
@@ -367,7 +367,7 @@ MostrarPorRegion(char* region, Map* mapa, Map* mapadex){
 
     int cantidad = 0;
 
-    while( oPokemon != NULL ){ //Un while para determinar que el pokemon existe
+    while( oPokemon != NULL ){      //Un while para determinar que el pokemon existe
 
         oPokemonDex = searchMap(mapadex, oPokemon->nombre);
         if (strcmp(oPokemonDex->region, region) == 0){    //compruebo si es de la region que busco
@@ -393,6 +393,17 @@ MostrarPorRegion(char* region, Map* mapa, Map* mapadex){
 
     printf("Hay un total de %i pokemones en tu almacenamiento de la region %s\n\n", cantidad, region);
 
+    oPokemon = firstMap(mapa);
+
+    while( oPokemon != NULL ){      //Busco los pokemones de la region buscada y les dejo la aparicion en 1;
+
+        oPokemonDex = searchMap(mapadex, oPokemon->nombre);
+        if (strcmp(oPokemonDex->region, region) == 0){
+
+            oPokemonDex->aparicion = 1;
+        }
+        oPokemon = nextMap(mapa);
+    }
 }
 
 void liberarPokemon(int idLiberar, Map* pokemonAlm, Map* pokedex){

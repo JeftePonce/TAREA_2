@@ -243,10 +243,11 @@ int main(){
             printf("REGION: \n");
             scanf("%s", region);
 
-            id = mayorID(pokemonAlm);
-            //printf("%i \n", id);
+            id = mayorID(pokemonAlm);   //obtengo la mayor id que hay y la aumento en 1 para asegurarme que la id ingresada sea una nueva;
+
             id++;
 
+            //Se almacenan los datos dentro de los objetos
             oPokemon = crear_pokemon(id, nombre, pc, ps, sexo, tipo);
             oPokemonDex = searchMap(pokedex, nombre);
 
@@ -265,7 +266,6 @@ int main(){
             }
 
             //mostrarMapaAlm(pokemonAlm);
-            //printf("%s %s %i %i %s %s %s %i %s\n",nombre,tipo,pc,ps,sexo,evolPrev,evolPost,numPokedex,region);
 
 
             break;
