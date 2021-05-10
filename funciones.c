@@ -142,15 +142,16 @@ pokemondex* crear_pokemonDex(char* nombre, int existencia, char* tipo, char* evo
 
 mostrarMapaAlm(Map* mapa){
 
-    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
+    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon)); //creamos una variable del tipo pokemon
 
-    oPokemon = firstMap(mapa);
+    oPokemon = firstMap(mapa); // nos posicionamos en el incio del mapa
 
     int i=1;
 
     while( oPokemon != NULL ){
+        //imprimimos los datos del pokemon
 
-        printf("------%i------\n", i);
+        //printf("------%i------\n", i);
 
         printf("%i \n", oPokemon->id);
         printf("%s \n", oPokemon->nombre);
@@ -161,7 +162,7 @@ mostrarMapaAlm(Map* mapa){
 
         i++;
 
-        oPokemon = nextMap(mapa);
+        oPokemon = nextMap(mapa);//avanzamos en el mapa
 
     }
 
@@ -169,15 +170,17 @@ mostrarMapaAlm(Map* mapa){
 
 mostrarMapaPokedex(Map* mapa){
 
-    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
+    pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex)); //creamos una variable del tipo pokemon de la pokedex (pokemondex)
 
-    oPokemonDex = firstMap(mapa);
+    oPokemonDex = firstMap(mapa); //lo posicionamos en el inicio del mapa
 
     int i=0;
 
     while(oPokemonDex != NULL){
 
-        printf("------%i------\n", i);
+        //imprimimos los datos del pokemon de la pokedex
+
+        //printf("------%i------\n", i);
 
         printf("%s \n", oPokemonDex->nombre);
         printf("%i \n", oPokemonDex->existencia);
@@ -189,7 +192,7 @@ mostrarMapaPokedex(Map* mapa){
         printf("\n");
         i++;
 
-        oPokemonDex = nextMap(mapa);
+        oPokemonDex = nextMap(mapa); //avanzamos en el mapa
 
     }
 
@@ -313,29 +316,30 @@ EvolucionarPokemon(Map *mapaAlm, Map *mapaDex, int id){
 
 void buscarTipo(char* tipoPok, Map* pokemonAlm){
 
-    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
+    pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon)); //creamos una variable del tipo pokemon
 
-    oPokemon = firstMap(pokemonAlm);
+    oPokemon = firstMap(pokemonAlm); //la variable del tipo pokemon es ahora el primero del mapa
 
-    list *listaTipoPok = list_create(listaTipoPok);
+    list *listaTipoPok = list_create(listaTipoPok); //creamos una lista para almacenar los pokemones con el tipo buscado
 
     while(oPokemon != NULL){
 
-        if( strstr(oPokemon->tipo, tipoPok) ){
+        if( strstr(oPokemon->tipo, tipoPok) ){ //con esta funcion (strstr) preguntamos si tipoPok esta escrito en el char* de oPokemon->tipo
 
-            list_push_back(listaTipoPok, oPokemon);
+            list_push_back(listaTipoPok, oPokemon); //y lo añadimos en la lista
 
         }
 
-        oPokemon = nextMap(pokemonAlm);
+        oPokemon = nextMap(pokemonAlm); //avanzamos en el mapa
 
         //confirmar si el pokemon pertenece al tipo con la funcion que tengo en el otro main y despues cambiar al siguiente, meter el pokemon en una lista y despues imprimir la lista
 
     }
 
-    oPokemon = list_first(listaTipoPok);
+    oPokemon = list_first(listaTipoPok); //nos posicionamos en el inicio de la lista
 
     while(oPokemon != NULL){
+        //imprimimos los datos del pokemon
 
         printf("%i\n", oPokemon->id);
         printf("%s\n", oPokemon->nombre);
@@ -345,7 +349,7 @@ void buscarTipo(char* tipoPok, Map* pokemonAlm){
         printf("%s\n", oPokemon->tipo);
         printf("\n");
 
-        oPokemon = list_next(listaTipoPok);
+        oPokemon = list_next(listaTipoPok); //nos posicionamos en el siguiente de la lista
 
     }
 
@@ -403,32 +407,33 @@ MostrarPorRegion(char* region, Map* mapa, Map* mapadex){
 
 void liberarPokemon(int idLiberar, Map* pokemonAlm, Map* pokedex){
 
+    //creamos variables para almacenar los tipos de datos correspondientes
     pokemon* oPokemon = (pokemon*) malloc(sizeof(pokemon));
     pokemondex* oPokemonDex = (pokemondex*) malloc(sizeof(pokemondex));
 
-    if(idLiberar > 100){
+    if(idLiberar > 100){ //si el id a liberar es mayor a 100 entonces nos saldriamos del rango del almacenamiento y se acaba la operacion
 
         printf("No se encontro el pokemon\n");
         return;
 
     }
 
-    oPokemon = searchMap(pokemonAlm, idLiberar);
-    oPokemonDex = searchMap(pokedex, oPokemon->nombre);
+    oPokemon = searchMap(pokemonAlm, idLiberar); //buscamos el pokemon con la id a liberar
+    oPokemonDex = searchMap(pokedex, oPokemon->nombre); //buscamos el pokemon que debemos liberar (en la pokedex), para poder bajarle la existencia
 
-    if(oPokemon == NULL) {
+    if(oPokemon == NULL) { //verificar si el pokemon es nulo y si lo es, entonces se acaba la operacion
 
         printf("No se encontro el pokemon\n");
         return;
 
-    }else if( oPokemon->id == idLiberar ){
+    }else if( oPokemon->id == idLiberar ){ //si el pokemon id es igual al que buscamos entonces entramos
 
-        eraseMap(pokemonAlm, oPokemon->id);
-        oPokemonDex->existencia = oPokemonDex->existencia-1;
+        eraseMap(pokemonAlm, oPokemon->id); //eliminamos el pokemon
+        oPokemonDex->existencia = oPokemonDex->existencia-1; //le restamos una existencia en la pokedex
 
         printf("El pokemon se elimino correctamente\n");
 
-    }else{
+    }else{ //si no, se printea este mensaje
 
         printf("No se encontro el pokemon\n");
 
